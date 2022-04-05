@@ -4,6 +4,7 @@ import org.hibernate.dialect.Dialect;
 import org.hibernate.dialect.function.SQLFunctionTemplate;
 import org.hibernate.dialect.function.StandardSQLFunction;
 import org.hibernate.dialect.function.VarArgsSQLFunction;
+import org.hibernate.dialect.identity.IdentityColumnSupport;
 import org.hibernate.type.StringType;
 
 import java.sql.Types;
@@ -95,14 +96,6 @@ public class SQLiteDialect extends Dialect {
         return true;
     }
 
-    public boolean hasAlterTable() {
-        return false; // As specify in NHibernate dialect
-    }
-
-    public boolean dropConstraints() {
-        return false;
-    }
-
     public String getAddColumnString() {
         return "add column";
     }
@@ -115,24 +108,35 @@ public class SQLiteDialect extends Dialect {
         return false;
     }
 
-    public String getDropForeignKeyString() {
-        throw new UnsupportedOperationException("No drop foreign key syntax supported by SQLiteDialect");
-    }
-
-    public String getAddForeignKeyConstraintString(String constraintName, String[] foreignKey, String referencedTable,
-                                                   String[] primaryKey, boolean referencesPrimaryKey) {
-        throw new UnsupportedOperationException("No add foreign key syntax supported by SQLiteDialect");
-    }
-
-    public String getAddPrimaryKeyConstraintString(String constraintName) {
-        throw new UnsupportedOperationException("No add primary key syntax supported by SQLiteDialect");
-    }
-
     public boolean supportsIfExistsBeforeTableName() {
         return true;
     }
 
     public boolean supportsCascadeDelete() {
         return false;
+    }
+
+    public IdentityColumnSupport getIdentityColumnSupport() {
+        return new SQLiteIdentityColumnSupport();
+    }
+
+    public boolean hasAlterTable() {
+        return false;
+    }
+
+    public boolean dropConstraints() {
+        return false;
+    }
+
+    public String getDropForeignKeyString() {
+        return "";
+    }
+
+    public String getAddForeignKeyConstraintString(String cn, String[] fk, String t, String[] pk, boolean rpk) {
+        return "";
+    }
+
+    public String getAddPrimaryKeyConstraintString(String constraintName) {
+        return "";
     }
 }

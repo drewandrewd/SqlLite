@@ -2,15 +2,21 @@ package project.education.models;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
+import javax.persistence.*;
+import java.util.List;
 
+@Entity
 @Data
 public class Well {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
+    @Column(nullable = false)
     private String name;
+
+    @OneToMany
+    private List<Equipment> equipments;
 }

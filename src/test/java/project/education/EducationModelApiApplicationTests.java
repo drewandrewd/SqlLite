@@ -1,29 +1,19 @@
 package project.education;
 
 import lombok.extern.slf4j.Slf4j;
-import org.bson.Document;
+
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Page;
-import project.education.exceptions.JsonRpcException;
-import project.education.exceptions.ModelNotFoundException;
-import project.education.repositories.ModelRepository;
-import project.education.services.ModelLinkService;
-import project.education.services.ModelService;
-
-import java.util.List;
-
-import static org.springframework.data.domain.Sort.Direction.DESC;
+import project.education.repositories.WellRepository;
+import project.education.services.WellService;
 
 @Slf4j
 @SpringBootTest
 class EducationModelApiApplicationTests {
 
-    private ModelService modelService;
-    private ModelRepository repository;
-    private ModelLinkService modelLinkService;
-    private Converter converter;
+    private WellService wellService;
+    private WellRepository repository;
+
 
     @Test
     void contextLoads() {
@@ -60,58 +50,58 @@ class EducationModelApiApplicationTests {
 //        //log.info("Delete: " + );
 //    }
 //
-    @Test
-    void fetchAllTest() throws ModelNotFoundException {
-        List<ModelResponse> list = modelService.fetchAll("name", DESC);
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i).getName());
-        }
-    }
-
-    @Test
-    void fetchAllWithPaginationTest() {
-        Page<ModelResponse> listOfModels = modelService.fetchAllWithPagination("name", DESC, 1, 5);
-        System.out.println(listOfModels.getContent());
-    }
-
-//    @Test void fetchByIdTest() {
-//        Model model = modelService.fetchById("61e05b1cf1d16059e3f4368c");
-//        System.out.println(model.getName());
+//    @Test
+//    void fetchAllTest() throws ModelNotFoundException {
+//        List<ModelResponse> list = modelService.fetchAll("name", DESC);
+//        for (int i = 0; i < list.size(); i++) {
+//            System.out.println(list.get(i).getName());
+//        }
 //    }
-
-    @Test void fetchByClassNodeIdTest() throws Throwable {
-        System.out.println(modelLinkService.fetchByClassNodeId(84354L));;
-    }
-
-    @Test
-    void fetchModelsByClassNodeIdTest() throws JsonRpcException {
-        List<Long> list = modelLinkService.fetchModelsByClassNodeId(84354L);
-        System.out.println(list);
-    }
-
-    @Test
-    void createDocTest() throws ModelNotFoundException {
-        Document document = modelService.createDoc("61e05b1cf1d16059e3f4368c");
-        System.out.println(converter.documentToModel(document));
-    }
-
-    @Autowired
-    public void setModelService(ModelService modelService) {
-        this.modelService = modelService;
-    }
-
-    @Autowired
-    public void setRepository(ModelRepository repository) {
-        this.repository = repository;
-    }
-
-    @Autowired
-    public void setModelLinkService(ModelLinkService modelLinkService) {
-        this.modelLinkService = modelLinkService;
-    }
-
-    @Autowired
-    public void setConverter(Converter converter) {
-        this.converter = converter;
-    }
+//
+//    @Test
+//    void fetchAllWithPaginationTest() {
+//        Page<ModelResponse> listOfModels = modelService.fetchAllWithPagination("name", DESC, 1, 5);
+//        System.out.println(listOfModels.getContent());
+//    }
+//
+////    @Test void fetchByIdTest() {
+////        Model model = modelService.fetchById("61e05b1cf1d16059e3f4368c");
+////        System.out.println(model.getName());
+////    }
+//
+//    @Test void fetchByClassNodeIdTest() throws Throwable {
+//        System.out.println(modelLinkService.fetchByClassNodeId(84354L));;
+//    }
+//
+//    @Test
+//    void fetchModelsByClassNodeIdTest() throws JsonRpcException {
+//        List<Long> list = modelLinkService.fetchModelsByClassNodeId(84354L);
+//        System.out.println(list);
+//    }
+//
+//    @Test
+//    void createDocTest() throws ModelNotFoundException {
+//        Document document = modelService.createDoc("61e05b1cf1d16059e3f4368c");
+//        System.out.println(converter.documentToModel(document));
+//    }
+//
+//    @Autowired
+//    public void setModelService(ModelService modelService) {
+//        this.modelService = modelService;
+//    }
+//
+//    @Autowired
+//    public void setRepository(ModelRepository repository) {
+//        this.repository = repository;
+//    }
+//
+//    @Autowired
+//    public void setModelLinkService(ModelLinkService modelLinkService) {
+//        this.modelLinkService = modelLinkService;
+//    }
+//
+//    @Autowired
+//    public void setConverter(Converter converter) {
+//        this.converter = converter;
+//    }
 }
