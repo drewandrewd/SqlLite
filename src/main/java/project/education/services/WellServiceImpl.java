@@ -17,12 +17,9 @@ public class WellServiceImpl implements WellService {
     private WellRepository wellRepository;
 
     @Override
-    public List<Well> findByName(String name) throws WellNotFoundException {
-        List<Well> listOfWells = wellRepository.findByName(name);
-        if (listOfWells.isEmpty()) {
-            throw new WellNotFoundException();
-        }
-        return listOfWells;
+    public Well findByName(String name) {
+        Well well = wellRepository.findByName(name);
+        return well;
     }
 
     @Override

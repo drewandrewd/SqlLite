@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface WellService {
 
-    List<Well> findByName(String name) throws WellNotFoundException;
+    Well findByName(String name) throws WellNotFoundException;
     void create(Well well);
 }

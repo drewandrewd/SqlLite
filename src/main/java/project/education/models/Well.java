@@ -9,10 +9,11 @@ import java.util.List;
 @Entity
 @Data
 public class Well {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @javax.persistence.Id
+    @Column(name = "well_id", nullable = false)
+    private Long id;
 
     @Column(nullable = false)
     private String name;

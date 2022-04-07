@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface WellRepository extends CrudRepository<Well, Long> {
 
-    List<Well> findByName(String name);
+    Well findByName(String name);
 }
