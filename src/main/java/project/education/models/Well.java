@@ -12,7 +12,7 @@ public class Well {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @javax.persistence.Id
-    @Column(name = "well_id", nullable = false)
+    @Column(name = "id", nullable = false)
     private Long id;
 
     @Column(nullable = false)

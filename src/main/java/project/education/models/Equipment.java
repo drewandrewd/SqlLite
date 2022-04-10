@@ -11,7 +11,7 @@ public class Equipment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @javax.persistence.Id
-    @Column(name = "equipment_id", nullable = false)
+    @Column(name = "id", nullable = false)
     private Long id;
 
 //    @Id
