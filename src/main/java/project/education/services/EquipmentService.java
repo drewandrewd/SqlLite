@@ -7,5 +7,5 @@ import java.util.List;
 public interface EquipmentService {
 
     List<EquipmentService> findByName(String name);
-    void create(Equipment equipment);
+    Equipment create(Equipment equipment);
 }

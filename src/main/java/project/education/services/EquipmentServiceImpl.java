@@ -18,8 +18,8 @@ public class EquipmentServiceImpl implements EquipmentService {
     }
 
     @Override
-    public void create(Equipment equipment) {
-        repository.save(equipment);
+    public Equipment create(Equipment equipment) {
+        return repository.save(equipment);
     }
 
     @Autowired

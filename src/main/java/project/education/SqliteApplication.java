@@ -7,6 +7,8 @@ import project.education.components.MainMenu;
 import project.education.exceptions.WellNotFoundException;
 
 import javax.annotation.PostConstruct;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 import java.io.IOException;
 
 @SpringBootApplication
@@ -19,7 +21,7 @@ public class SqliteApplication {
     }
 
     @PostConstruct
-    public void doRun() throws WellNotFoundException, IOException {
+    public void doRun() throws WellNotFoundException, IOException, ParserConfigurationException, TransformerException {
         mainMenu.menu();
     }
 
