@@ -2,7 +2,7 @@ package project.education.components;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import project.education.models.Well;
+import project.education.models.wells.Well;
 import project.education.repositories.EquipmentRepository;
 import project.education.repositories.WellRepository;
 

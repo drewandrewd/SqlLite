@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<class-mapping>
+	<class name="project.education.models.wells.Well">
+		<id name="id" type="Integer" column="id"/>
+		<attribute name="name" type="java.lang.String" column="name" mandatory="true"/>
+		
+		<insert>
+			<sql clause="
+				INSERT INTO Well(name)
+    				VALUES (?)">
+    			<attribute name="id"/>
+    			<attribute name="name"/>
+    		</sql>
+		</insert>
+
+		<update>
+			<sql clause="
+				UPDATE Well
+    				SET	name = ?
+           			WHERE id = ?">
+    			<attribute name="name"/>
+    			<attribute name="id"/>
+    		</sql>
+		</update>
+
+		<delete>
+			<sql clause="
+				DELETE FROM Well
+    				WHERE id = ?">
+    			<attribute name="id"/>
+    		</sql>
+		</delete>
+
+	</class>
+</class-mapping>

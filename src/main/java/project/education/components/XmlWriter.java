@@ -5,8 +5,8 @@ import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
-import project.education.models.Equipment;
-import project.education.models.Well;
+import project.education.models.equipments.Equipment;
+import project.education.models.wells.Well;
 import project.education.repositories.EquipmentRepository;
 import project.education.repositories.WellRepository;
 

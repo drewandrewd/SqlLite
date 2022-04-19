@@ -2,7 +2,7 @@ package project.education.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import project.education.models.Well;
+import project.education.models.wells.Well;
 import project.education.repositories.WellRepository;
 
 @Service

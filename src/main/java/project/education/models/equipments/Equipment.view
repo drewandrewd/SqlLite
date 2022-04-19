@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<query>
+	<select><![CDATA[
+		SELECT  id,
+             	name,
+             	well_id
+    		FROM Equipment
+	]]></select>
+	<order-by>id</order-by>
+</query>

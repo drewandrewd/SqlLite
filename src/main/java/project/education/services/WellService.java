@@ -1,6 +1,6 @@
 package project.education.services;
 
-import project.education.models.Well;
+import project.education.models.wells.Well;
 
 public interface WellService {
 

@@ -3,8 +3,8 @@ package project.education.repositories;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import project.education.models.Equipment;
-import project.education.models.Well;
+import project.education.models.equipments.Equipment;
+import project.education.models.wells.Well;
 
 import java.util.List;
 

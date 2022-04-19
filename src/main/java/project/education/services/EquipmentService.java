@@ -1,6 +1,6 @@
 package project.education.services;
 
-import project.education.models.Equipment;
+import project.education.models.equipments.Equipment;
 
 import java.util.List;
 
