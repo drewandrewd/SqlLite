@@ -2,10 +2,7 @@ package project.education.models.wells;
 
 import ru.ep.sdo.Entity;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 import ru.ep.sdo.annotations.Xml;
-
-import javax.persistence.*;
 
 @Data
 @Xml(name = "Well")
@@ -14,14 +11,9 @@ public class Well extends Entity {
     public static final String PROPERTYNAME_ID = "id";
     public static final String PROPERTYNAME_NAME = "name";
 
-    @Id
-    @GeneratedValue
-    @javax.persistence.Id
-    @Column(name = "id")
     @Xml(name = "id")
     private Integer id;
 
-    @Column(nullable = false)
     @Xml(name = "name")
     private String name;
 
@@ -35,5 +27,13 @@ public class Well extends Entity {
         String oldValue = this.name;
         this.name = name;
         firePropertyChange(PROPERTYNAME_NAME, oldValue, name);
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
     }
 }

@@ -17,16 +17,13 @@ public class Equipment extends Entity {
     public static final String PROPERTYNAME_NAME = "name";
     public static final String PROPERTYNAME_WELL = "well";
 
-    @Id
-    @GeneratedValue
-    @javax.persistence.Id
-    @Column(name = "id")
+    @Xml(name = "id")
     private Integer id;
 
+    @Xml(name = "name")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "well_id")
+    @Xml(name = "well_id")
     private Well well;
 
     public void setId(Integer id) {

@@ -4,15 +4,12 @@ import lombok.extern.slf4j.Slf4j;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import project.education.repositories.WellRepository;
-import project.education.services.WellService;
+
 
 @Slf4j
 @SpringBootTest
 class EducationModelApiApplicationTests {
 
-    private WellService wellService;
-    private WellRepository repository;
 
 
     @Test

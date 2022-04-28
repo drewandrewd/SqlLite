@@ -1,45 +1,31 @@
 package project.education.components;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
 import org.springframework.stereotype.Component;
-import project.education.SqliteApplication;
-import project.education.exceptions.WellNotFoundException;
 
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+
 
 @Component
 public class MainMenu {
 
-    private WellCreation wellCreation;
+    private WellOperations wellCreation;
     private LineReader lineReader;
-    private WellSearch wellSearch;
-    private XmlWriter xmlWriter;
 
-    public void menu() throws IOException, WellNotFoundException, ParserConfigurationException, TransformerException {
+    public void menu() throws IOException {
         System.out.println("Команды:");
-        System.out.println("1. Создание скважины с оборудованием: create <название скважены> <колличество оборудования>");
-        System.out.println("2. Выводит на колличество оборудования у введенной скважины: total <название скважены> <название скважены> ...");
-        System.out.println("3. Запуск создания xml файла: xml");
+        System.out.println("1. Создание скважины: create <название скважены> <колличесиво оборудования>");
+        System.out.println("2. Обновить скважины: update <название скважены> <колличесиво оборудования>");
+        System.out.println("3. Удалить скважинц: delete <id скважены>");
         while (true) {
             String line = lineReader.readLine();
             String commands[] = line.split(" ");
             if ("create".equals(commands[0])) {
                 wellCreation.createWell(commands[1], Integer.parseInt(commands[2]));
-            } else if ("total".equals(commands[0])) {
-                ArrayList<String> listWell = new ArrayList<>();
-                Collections.addAll(listWell, commands);
-                listWell.remove(0);
-                wellSearch.wellSearch(listWell);
-            } else if ("xml".equals(commands[0])) {
-                xmlWriter.writeXml(commands[1]);
+            } else if ("update".equals(commands[0])) {
+                wellCreation.updateWell(commands[1], Integer.parseInt(commands[2]));
+            } else if ("delete".equals(commands[0])) {
+                wellCreation.deleteWell(Integer.parseInt(commands[1]));
             } else {
                 System.out.println("Wrong command");
             }
@@ -47,7 +33,7 @@ public class MainMenu {
     }
 
     @Autowired
-    public void setWellCreation(WellCreation wellCreation) {
+    public void setWellCreation(WellOperations wellCreation) {
         this.wellCreation = wellCreation;
     }
 
@@ -56,13 +42,4 @@ public class MainMenu {
         this.lineReader = lineReader;
     }
 
-    @Autowired
-    public void setWellSearch(WellSearch wellSearch) {
-        this.wellSearch = wellSearch;
-    }
-
-    @Autowired
-    public void setXmlWriter(XmlWriter xmlWriter) {
-        this.xmlWriter = xmlWriter;
-    }
 }

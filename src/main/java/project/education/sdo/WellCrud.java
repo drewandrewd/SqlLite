@@ -5,6 +5,6 @@ import project.education.models.wells.Well;
 public interface WellCrud {
 
     void create(Well well);
-    void update(Integer id);
+    void update(Well well);
     void delete(Integer id);
 }

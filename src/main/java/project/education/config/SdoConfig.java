@@ -2,6 +2,7 @@ package project.education.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 import project.education.models.wells.Well;
 import ru.ep.sdo.Session;
 import ru.ep.sdo.SessionFactory;
@@ -15,7 +16,6 @@ import java.util.Properties;
 @Configuration
 public class SdoConfig {
 
-    @Bean
     public Properties propertiesSdo() {
         Properties properties = new Properties();
         properties.setProperty(SessionMetaData.PROPERTY_DRIVER_CLASS_NAME,
@@ -44,7 +44,6 @@ public class SdoConfig {
         listModel.setOrderClause(null);
         return listModel;
     }
-
 
     public XMLTreeListModel wellTreeModelSdo() {
         XMLTreeListModel treeListModel = sessionSdo().getTreeListModel("SDO.WellTree");

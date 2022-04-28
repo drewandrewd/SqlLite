@@ -6,8 +6,8 @@
 		
 		<insert>
 			<sql clause="
-				INSERT INTO Well(name)
-    				VALUES (?)">
+				INSERT INTO Well (id, name)
+    				VALUES (?, ?)">
     			<attribute name="id"/>
     			<attribute name="name"/>
     		</sql>
